@@ -169,7 +169,7 @@ body{
 	border-bottom: 1px #CC0000 solid;
 }
 
-.top .loginBox .loginTab .content input.btn{
+.top .loginBox .loginTab .content button .btn{
 	display: block;
 	margin-bottom:15px;
 	width: 290px;
@@ -182,7 +182,7 @@ body{
 	background-position: 0 0;
 	outline: none;
 }
-.top .loginBox .loginTab .content input.btn:hover{
+.top .loginBox .loginTab .content button .btn:hover{
 	background-position: 0 -40px;
 }
 

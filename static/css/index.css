@@ -159,9 +159,9 @@
 
 }
 
-.navBox .nav_bottom .center_img ul#lunboImg_list li,
-.navBox .nav_bottom .center_img ul#lunboImg_list li img{
-	width: 740px;
+.navBox .nav_bottom .center_img ul#lunboImg_list ,
+.navBox .nav_bottom .center_img ul#lunboImg_list  img{
+	width: 700px;
 	height: 400px;
 }
 
@@ -924,8 +924,8 @@ li.floor_lunbo div._next i{
 }
 
 .floor_twoComputer .bottom ul.boardsLogo_list li a img,
-.floor_threeDigital .bottom ul.boardsLogo_list li:a img,
-.floor_fourDiy .bottom ul.boardsLogo_list li:a img{
+.floor_threeDigital .bottom ul.boardsLogo_list li a img,
+.floor_fourDiy .bottom ul.boardsLogo_list li a img{
 	width: 120px;
 	height: 60px;
 	float: left;
@@ -1256,3 +1256,43 @@ li.floor_lunbo div._next i{
     left: 0;
     top: 430px;
 }
+
+
+
+
+
+/*html, body {*/
+        /*position: relative;*/
+        /*height: 100%;*/
+    /*}*/
+    /*body {*/
+        /*background: #eee;*/
+        /*font-family: Helvetica Neue, Helvetica, Arial, sans-serif;*/
+        /*font-size: 14px;*/
+        /*color:#000;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+    /*}*/
+    /*.swiper-container {*/
+        /*width: 100%;*/
+        /*height: 100%;*/
+    /*}*/
+    /*.swiper-slide {*/
+        /*text-align: center;*/
+        /*font-size: 18px;*/
+        /*background: #fff;*/
+
+        /*!* Center slide text vertically *!*/
+        /*display: -webkit-box;*/
+        /*display: -ms-flexbox;*/
+        /*display: -webkit-flex;*/
+        /*display: flex;*/
+        /*-webkit-box-pack: center;*/
+        /*-ms-flex-pack: center;*/
+        /*-webkit-justify-content: center;*/
+        /*justify-content: center;*/
+        /*-webkit-box-align: center;*/
+        /*-ms-flex-align: center;*/
+        /*-webkit-align-items: center;*/
+        /*align-items: center;*/
+    /*}*/

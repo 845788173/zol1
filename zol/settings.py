@@ -25,7 +25,7 @@ SECRET_KEY = 'g+_tlf3h0^qp$(k0llq9%@u0xz0dw3xua+i!r*ufpn1i@fxjkj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'zol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
+        'NAME': 'mydb1',
         'USER':'root',
         'PASSWORD':'7986805',
         'HOST':'localhost',
@@ -127,6 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img_lunbo')
 # STATIC_URL = '/templates/'
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'templates')

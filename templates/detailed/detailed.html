@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>佳能 760D套机(18-135mm) 佳能EOS760D 约2400万像素,19点全十字型AF【报价_图片_参数_评测】_泰琪数码商城-ZOL商城_files</title>
-		<link rel="stylesheet" type="text/css" href="/static/css/public.css"/>
-		<link rel="stylesheet" type="text/css" href="/static/css/detailed.css"/>
-		<script src="/static/js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/area.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/public.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/detailed.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/public.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/detailed.css'%}"/>
+		<script src="{% static 'js/jquery-1.12.0.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/area.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/public.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/detailed.js'%}" type="text/javascript" charset="utf-8"></script>
 
 	</head>
 	<body>
@@ -17,7 +18,7 @@
 		<div class="topNav">
 			<div class="header">
 				<div class="header_login_info">
-					<span><a href="index.html">商城首页</a></span>
+					<span><a href="{% static 'index.html'%}">商城首页</a></span>
 				</div>
 				<div class="header_right_menu">
 					<ul id="header_menu">
@@ -34,7 +35,7 @@
 								</ul>
 							</div>
 						</li>
-						<li><a href="shopCar.html">购物车<span></span></a></li>
+						<li><a href="{% static 'shopCar.html'%}">购物车<span></span></a></li>
 						<li><a href="#">帮助中心</a></li>
 						<li>|</li>
 						<!--手机商城-->
@@ -45,7 +46,7 @@
 							</a>
 							<i class="ico"></i>
 							<div id="shop_wechat">
-								<img src="/static/img/shop_wechat.png"/>
+								<img src="{% static 'img/shop_wechat.png'%}"/>
 							</div>
 						</li>
 						<li><a href="#">中关村在线</a></li>
@@ -68,7 +69,7 @@
 				<!--logo-->
 				<div class="left_logo">
 					<a href="#" class="bigLogo">
-						<img src="/static/img/logo_180x50.png"/>
+						<img src="{% static 'img/logo_180x50.png'%}"/>
 					</a>
 					<p><a href="#">中关村在线旗下网上商城</a></p>
 				</div>
@@ -84,12 +85,12 @@
 					
 					<!--热门搜索-->
 					<ul id="hot_search">
-						<!--<li><a href="#">三星s7 Edge</a></li>-->
+						<li><a href="#">三星s7 Edge</a></li>
 					</ul>
 				</div>
 				<!--承诺保证-->
 				<div class="right_promise">
-					<a href="#"><img src="/static/img/search_promise.jpg"/></a>
+					<a href="#"><img src="{% static 'img/search_promise.jpg'%}"/></a>
 				</div>
 			</div>
 		</div>
@@ -126,18 +127,26 @@
 			<div class="detailed_top">
 				<div class="left_img">
 					<div class="bigImg" id="smallImg">
-						<!--<img src="img/detail/big_01.jpg"/></a>-->
-						<div id="smallArea"></div>
+                            <ul>
+{#						        <img src="{% static 'img/detail/big_01.jpg'%}"/></a>#}
+                                <a href="#"><img src="{{ detailed.d_bigimg }}" alt=""></a>
+
+                            </ul>
+                        <div id="smallArea"></div>
 					</div>
 					
-					<div id="bigArea">
-						<!--<img id="bigImg" src="img/detail/big_01.jpg" class="_bigImg"/>-->
-					</div>
+{#					<div id="bigArea">#}
+{#						<img id="bigImg" src="{% static 'img/detail/big_01.jpg'%}" class="_bigImg"/>#}
+{#					</div>#}
 	
 					<div class="imgIist">
-						<!--<ul>
-							<li ><img src="img/detail/list_01.jpg"/></li>
-						</ul>-->
+						<ul>
+                            {% for detailed in detaileds %}
+
+{#							<li ><img src="{% static 'img/detail/list_01.jpg'%}"/></li>#}
+                                <a href="{% url 'ZOL:detailed' detailed.d_smallimg detailed.d_price detailed.d_color detailed.d_num %}"><img src="{{ detailed.d_smallimg }}" alt=""></a>
+                            {% endfor %}
+						</ul>
 					</div>
 					<div class="action">
 						<a href="#"><i class="one"></i>关注商品</a>
@@ -149,7 +158,7 @@
 					<div class="price">
 						<dl class="salePrice">
 							<dt>价&nbsp;&nbsp;格：</dt >
-							<dd><span class="goodsPrice">¥</span><!--<em class="priceNum">5588.00</em>--></dd>
+							<dd><span class="goodsPrice">¥</span><em class="priceNum">{{ detailed.d_price }}</em></dd>
 						</dl>
 						<dl class="saleActivity">
 							<dt>促&nbsp;&nbsp;销：</dt>
@@ -157,15 +166,15 @@
 								<ul>
 									<li>
 										<span>满减</span>
-										<!--<p>国庆期间火爆促销购物 满1999元减20元；</p>-->
+										<p>国庆期间火爆促销购物 满1999元减20元；</p>
 									</li>
 									<li>
 										<span>赠品</span>
 										<div class="gifts">
-											<!--<span>-->
-													<!--<img src="img/detail/gift1.jpg" alt=""/>
+											<span>
+                                                    <img src="{% static 'img/detail/gift1.jpg'%}" alt=""/>
 													<em class="num">x1</em> -->
-											<!--</span>-->
+											</span>
 										</div>
 									</li>
 								</ul>
@@ -177,8 +186,8 @@
 						<dl>
 							<dt>配&nbsp;&nbsp;送：</dt>
 							<dd style="display: flex;">
-								<!--<div class="select">-->
-									<!--em class="select">广东 v</em>-->
+								<div class="select">
+									<em class="select">广东 v</em>
 									<div>
 		
 									<!-- 设置name -->
@@ -186,11 +195,11 @@
 								    <select id="s_city" name="s_city" ></select>  
 								    <select id="s_county" name="s_county"></select>
 								    <!-- 导入js -->
-								    <script src="/static/js/jquery-1.12.3.js"></script>
-								    <script class="resources library" src="/static/js/area.js" type="text/javascript"></script>
+								    <script src="{% static 'js/jquery-1.12.3.js'%}"></script>
+								    <script class="resources library" src="{% static 'js/area.js'%}" type="text/javascript"></script>
 								    
 								     
-								    <script type="text/javascript">_init_area();</script>
+								    <script type="text/javascript"></script>
 								    </div>
 								<!--</div>-->
 								<span>可送达，<strong>顺丰包邮</strong></span>
@@ -210,10 +219,10 @@
 							<dd class="store">由 <a href="#" > 泰琪数码商城 </a>发货并承诺提供以下服务保障</dd>
 							<dd class="list">
 								<ul>
-									<li><a href="#"><img src="/static/img_footer/service_1.png" alt=""/><span>行货保证</span></a></li>
-									<li><a href="#"><img src="/static/img_footer/service_2.png"><span>发票保障</span></a></li>
-									<li><a href="#"><img src="/static/img_footer/service_3.png" /><span>顺丰包邮</span></a></li>
-									<li><a href="#"><img src="/static/img_footer/service_4.png"/><span>无忧退款</span></a></li>
+									<li><a href="#"><img src="{% static 'img_footer/service_1.png'%}" alt=""/><span>行货保证</span></a></li>
+									<li><a href="#"><img src="{% static 'img_footer/service_2.png'%}"><span>发票保障</span></a></li>
+									<li><a href="#"><img src="{% static 'img_footer/service_3.png'%}" /><span>顺丰包邮</span></a></li>
+									<li><a href="#"><img src="{% static 'img_footer/service_4.png'%}"/><span>无忧退款</span></a></li>
 								</ul>
 							</dd>
 						</dl>
@@ -224,25 +233,24 @@
 						<dl>
 							<dt>颜色类别：</dt>
 							<dd class="color">
-								<!--<ul>
-									<li class="active"><span>760D（18-135STM）套机</span> <i class="active2"></i></li>
-								</ul>-->
+								<ul>
+									<li class="active"><span>{{ detailed.d_color  }}</span> <i class="active2"></i></li>
+								</ul>
 							</dd>
 						</dl>				
 						
 						<dl>
 							<dt>套&nbsp;&nbsp;装：</dt>
 							<dd class="taocan">
-								<!--<ul>
-									<li class="active"><span>官方标配</span> <i class="active2"></i></li>
-									<li><span>套餐一</span> <i></i></li>
-									<li><span>套餐二</span> <i></i></li>
-									<li><span>套餐三</span> <i></i></li>
-									<li><span>套餐四</span> <i></i></li>
-								</ul>-->
-								<!--<div class="explain"> 
+								<ul>
+                                    {% for detailed in detaileds %}
+
+									<li class="active"><span>{{ detailed.d_tc }}</span> <i class="active2"></i></li>
+                                    {% endfor %}
+								</ul>
+								<div class="explain">
 									以官方出厂标配为准（下面相机参数里有包装清单）不含卡包等配件，建议亲们选择套装！
-								</div>-->
+								</div>
 							</dd>
 						</dl>
 						
@@ -293,13 +301,13 @@
 			<div class="hot_goods">
 				<h3>店铺热卖</h3>
 				<ul class="hotGoodsList">
-					<!--<li>-->
-						<!--<a href="#">
+					<li>
+						<a href="#">
 							<span class="pic"><img src="img/detail/hotgoods1.jpg"/></span>
 							<span class="title">佳能 80D套机(EF-S 18-200mm IS ) 佳能</span>
-						</a>-->
-						<!--<p>￥<span>8188.00</span></p>
-					</li>-->
+						</a>
+						<p>￥<span>8188.00</span></p>
+					</li>
 				</ul>
 			</div>
 			
@@ -404,7 +412,7 @@
 							<li>
 								<a href="#">手机购买</a>
 								<div class="codeImg">
-									<img src="/static/img/detail/qrcodegen.php.png"/>
+									<img src="{% static 'img/detail/qrcodegen.php.png'%}"/>
 								</div>
 							</li>
 						</ul>
@@ -418,7 +426,7 @@
 							<li><span>官方标配：</span>以官方出厂标配为准（下面相机参数里有包装清单）不含卡包等配件，建议亲们选择套装！</li>
 						</ul>
 						<div class="sevice_banNew">
-							<a href="#"><img src="/static/img/detail/sevice-banner-new.png"/></a>
+							<a href="#"><img src="{% static 'img/detail/sevice-banner-new.png'%}"/></a>
 						</div>
 						<div class="pro_show sevice_title">
 							<span class="title">
@@ -430,28 +438,28 @@
 						</div>
 						<div class="sevice_content">
 								<p>
-									<img src="/static/img/detail/shenming.jpg"/>
+									<img src="{% static 'img/detail/shenming.jpg'%}"/>
 								</p>
 								<p>
 									<span>重要提示：</span>
 									<em>由于最近货源不稳定，请亲们拍前与客服联系是否有现货，以免造成不必要的麻烦！如有未看到此提示的亲们拍下缺货产品造成无法及时发货，我公司客服人员会尽快联系您取消订单。给您带来的不便请谅解！谢谢亲们的配合，我们共同打造一个良好的购物体验。</em>
 								</p>
 								<p>
-									<img src="/static/img/detail/chengruo.jpg"/>
+									<img src="{% static 'img/detail/chengruo.jpg'%}"/>
 								</p>
 								<p>
 									<i>即日起：单反微单相机包统一免费更换为某东售价129元的火柴人（MatchstickMen）HK06单反相机包。不另做通知，祝亲们购物愉快！</i>
 								</p>
-								<p><img src="/static/img/detail/Photo1.jpg"/></p>
-								<p><img src="/static/img/detail/Photo2.jpg"/></p>
-								<p><img src="/static/img/detail/Photo3.jpg"/></p>
-								<p><img src="/static/img/detail/Photo4.jpg"/></p>
-								<p><img src="/static/img/detail/Photo5.jpg"/></p>
-								<p><img src="/static/img/detail/Photo6.jpg"/></p>
-								<p><img src="/static/img/detail/Photo7.jpg"/></p>
-								<p><img src="/static/img/detail/Photo8.jpg"/></p>
-								<p><img src="/static/img/detail/Photo9.jpg"/></p>
-								<p><img src="/static/img/detail/Photo10.jpg"/></p>
+								<p><img src="{% static 'img/detail/Photo1.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo2.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo3.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo4.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo5.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo6.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo7.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo8.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo9.jpg'%}"/></p>
+								<p><img src="{% static 'img/detail/Photo10.jpg'%}"/></p>
 						</div>
 						
 						<div class="pro_hour sevice_title">
@@ -574,11 +582,11 @@
 			<!--服务-->
 			<div class="footer_service">
 				<ul>
-					<li><a href="#"><img src="/static/img_footer/service_1.png" alt=""/><span>行货保证</span></a></li>
-					<li><a href="#"><img src="/static/img_footer/service_2.png"><span>发票保障</span></a></li>
-					<li><a href="#"><img src="/static/img_footer/service_3.png" /><span>顺丰包邮</span></a></li>
-					<li><a href="#"><img src="/static/img_footer/service_4.png"/><span>无忧退款</span></a></li>
-					<li><a href="#"><img src="/static/img_footer/service_5.png"/><span>先行赔付</span></a></li>
+					<li><a href="#"><img src="{% static 'img_footer/service_1.png'%}" alt=""/><span>行货保证</span></a></li>
+					<li><a href="#"><img src="{% static 'img_footer/service_2.png'%}"><span>发票保障</span></a></li>
+					<li><a href="#"><img src="{% static 'img_footer/service_3.png'%}" /><span>顺丰包邮</span></a></li>
+					<li><a href="#"><img src="{% static 'img_footer/service_4.png'%}"/><span>无忧退款</span></a></li>
+					<li><a href="#"><img src="{% static 'img_footer/service_5.png'%}"/><span>先行赔付</span></a></li>
 				</ul>
 			</div>
 			<!--售后服务-->

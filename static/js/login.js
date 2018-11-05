@@ -26,9 +26,9 @@ $(function() {
 							path: "/"
 					})
 					//匹配成功跳转到首页
-					setTimeout(function() {
-						window.location.href = 'index.html';
-					}, 1000)
+					// setTimeout(function() {
+					// 	window.location.href = 'index.html';
+					// }, 1000)
 				} else if(users1[0] == $(".name").val() && users1[1] != $(".pwd").val()) {
 					$(".content").find(".tipsBox").css("display", "block").find("span").text("请填写正确的密码");
 				} else{

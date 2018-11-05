@@ -1,7 +1,7 @@
 $(function() {
 
 	//点击详情页商品的跳转
-	$.get("static/json/detailed.json", function(data) {
+	$.get("json/detailed.json", function(data) {
 		for(var i = 0; i < data.length; i++) {
 			var id = getItem();
 			if(id == data[i].id) {
@@ -245,7 +245,7 @@ $(function() {
 	})
 
 	//点击首页商品的跳转
-	$.get("static/json/floor.json", function(data) {
+	$.get("json/floor.json", function(data) {
 		$.each(data.floor_oneMoblie[1], function() {
 			$.each(data.floor_oneMoblie[1], function() {
 				for(var i = 0; i < data.floor_oneMoblie[1].textImg.length; i++) {
